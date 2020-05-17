@@ -113,3 +113,73 @@ a:hover {
   background-color: #efefef;
 }
 ```
+
+### 选择器
+
+#### 父级选择器
+
+```
+a {
+  color: blue;
+  &:hover {
+    color: green;
+  }
+}
+
+a {
+  color: blue;
+}
+
+a:hover {
+  color: green;
+}
+```
+
+还可以配合实现CSS命名配合
+
+```
+.button {
+  &-ok {
+    background-image: url("ok.png");
+  }
+  &-cancel {
+    background-image: url("cancel.png");
+  }
+
+  &-custom {
+    background-image: url("custom.png");
+  }
+}
+
+.button-ok {
+  background-image: url("ok.png");
+}
+.button-cancel {
+  background-image: url("cancel.png");
+}
+.button-custom {
+  background-image: url("custom.png");
+}
+```
+
+### 改变选择器的顺序
+
+```
+.header {
+  .menu {
+    border-radius: 5px;
+    .no-borderradius & {
+      background-image: url('images/button-background.png');
+    }
+  }
+}
+
+.header .menu {
+  border-radius: 5px;
+}
+.no-borderradius .header .menu {
+  background-image: url('images/button-background.png');
+}
+```
+
+### Extends
